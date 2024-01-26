@@ -1,0 +1,76 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FutureCreators Academy</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Include your CSS stylesheets here -->
+</head>
+<body>
+  <div id="root"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+
+// app.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.getElementById('root');
+
+  const createHeader = () => {
+    const header = document.createElement('header');
+    header.innerHTML = `
+      <h1>FutureCreators Academy</h1>
+      <p>Empowering Youth in Technology</p>
+      <nav>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#mission">Our Mission</a></li>
+          <li class="dropdown">
+            <a href="#">Financial Support Plan</a>
+            <div class="dropdown-content">
+              <p>1. Foundation Grants Pursuit</p>
+              <p>2. Corporate Champions Program</p>
+              <p>3. Community Collaboration Initiative</p>
+              <p>4. Empower Youth Crowdfunding Campaigns</p>
+              <p>5. Individual Ambassadors Outreach</p>
+              <p>6. Tech for Tomorrow In-Kind Contributions</p>
+              <p>7. Government Innovation Grants Exploration</p>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    `;
+    return header;
+  };
+
+  const createSection = (id, title, content) => {
+    const section = document.createElement('section');
+    section.id = id;
+    section.innerHTML = `
+      <h2>${title}</h2>
+      <p>${content}</p>
+    `;
+    return section;
+  };
+
+  const createFooter = () => {
+    const footer = document.createElement('footer');
+    footer.innerHTML = `
+      <p>Contact us at: <a href="mailto:shingaimanhambara@gmail.com">shingaimanhambara@gmail.com</a></p>
+    `;
+    return footer;
+  };
+
+  const renderPage = () => {
+    root.appendChild(createHeader());
+    root.appendChild(createSection('about', 'About Us', 'FutureCreators Academy is dedicated to bridging the diversity gap in the tech industry by empowering underserved youth in San Francisco.'));
+    root.appendChild(createSection('mission', 'Our Mission', 'To provide in-demand digital skills through project-based learning, fostering creativity and innovation among students.'));
+    root.appendChild(createSection('financial-support', 'Financial Support Plan', 'Details about the financial support plan.'));
+    root.appendChild(createFooter());
+  };
+
+  renderPage();
+});
